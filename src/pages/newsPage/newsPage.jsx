@@ -15,7 +15,7 @@ export default function NewsPage() {
         </div>
         <img src="maskMeg.svg" alt="" className={styles.mask} />
       </section>
-      
+
       <Footer></Footer>
     </>
   );

@@ -12,8 +12,8 @@ export default function App() {
         <Header />
         <Routes>
           <Route path="/CampSite/" element={<HelloPage />} />
-          <Route path="/CampSite/about" element={<AboutPage />} />
-          <Route path="/CampSite/news" element={<AboutPage />} />
+          <Route path="/CampSite/about/" element={<AboutPage />} />
+          <Route path="/CampSite/news/" element={<AboutPage />} />
         </Routes>
       </BrowserRouter>
     </>

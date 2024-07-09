@@ -1,7 +1,7 @@
-import styles from "./IntroSection.module.css";
-import Counter from "../../counter/Counter";
+import styles from "./HelloPage.module.css";
+import Counter from "../../components/counter/Counter";
 
-export default function IntroSection() {
+export default function HelloPage() {
   return (
     <>
       <section>

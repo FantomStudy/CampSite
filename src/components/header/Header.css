@@ -1,3 +1,11 @@
+header a {
+  text-decoration: none;
+  color: var(--secondary);
+  transition: color 0.3s ease-in-out;
+}
+header a:hover {
+  color: var(--primary);
+}
 .headerNav {
   display: flex;
   justify-content: space-around;
@@ -6,18 +14,16 @@
   font-weight: 500;
   padding: 0;
   li {
-    transition: color 0.3s ease-in-out, scale 0.3s ease-in-out;
-    cursor: pointer;
+    transition: scale 0.3s ease-in-out;
   }
   li:hover {
-    color: var(--primary);
     scale: 1.2;
   }
 }
 .logoText {
   font-size: 46px;
   font-weight: 500;
-  cursor: pointer;
+  cursor: default;
 }
 .headerButton {
   transition: background-color 0.3s ease-in-out, scale 0.3s ease-in-out;
@@ -42,8 +48,8 @@
 
     padding: 0;
     z-index: 10;
-    width: 50px;
-    height: 50px;
+    width: 45px;
+    height: 45px;
 
     border: none;
     background: transparent;

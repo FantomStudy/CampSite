@@ -11,7 +11,7 @@ const AnimatedCounter = ({ end, duration = 3000 }) => {
 
       const frame = (timestamp) => {
         const progress = Math.min(1, (timestamp - startTime) / duration);
-        const easedProgress = 1 - Math.pow(1 - progress, 3); 
+        const easedProgress = 1 - Math.pow(1 - progress, 2); 
 
         if (easedProgress < 1) {
           setCount(Math.round(0 + diff * easedProgress));

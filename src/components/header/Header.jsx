@@ -18,10 +18,10 @@ export default function Header() {
             <Link to="/CampSite/">Hello</Link>
           </li>
           <li>
-            <Link to="/CampSite/about">About</Link>
+            <Link to="/CampSite/about/">About</Link>
           </li>
           <li>
-            <Link to="/CampSite/news">News</Link>
+            <Link to="/CampSite/news/">News</Link>
           </li>
         </ul>
         <button className="headerButton">Sign in</button>

@@ -6,20 +6,6 @@ export default function Footer() {
     <>
       <footer>
         <div className={styles.column}>
-          <h3>Navigation</h3>
-          <ul>
-            <li>
-              <Link to="/CampSite/">Hello</Link>
-            </li>
-            <li>
-              <Link to="/CampSite/about">About</Link>
-            </li>
-            <li>
-              <Link to="/CampSite/news">News</Link>
-            </li>
-          </ul>
-        </div>
-        <div className={styles.column}>
           <h3>Contact us</h3>
           <ul>
             <li>

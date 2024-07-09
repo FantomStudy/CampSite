@@ -12,7 +12,7 @@ export default function HelloPage() {
               CAMP’
               <Counter end={24} duration={4000} />
             </h1>
-            <p>Don’t miss your chance for unforgettable summer adventures!</p>
+            <p>Don’t miss your chance for unforgettable adventures!</p>
             <button className={styles.campButton}>JOIN US!</button>
           </div>
           <img src="camp.svg" alt="" className={styles.introImg} />

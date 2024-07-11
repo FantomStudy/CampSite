@@ -1,7 +1,9 @@
 import styles from "./HelloPage.module.css";
 import Counter from "../../components/counter/Counter";
+import { useNavigate } from "react-router-dom";
 
 export default function HelloPage() {
+  const navigate = useNavigate();
   return (
     <>
       <section>
@@ -13,7 +15,12 @@ export default function HelloPage() {
               <Counter end={24} duration={4000} />
             </h1>
             <p>Don’t miss your chance for unforgettable adventures!</p>
-            <button className={styles.campButton}>JOIN US!</button>
+            <button
+              className={styles.campButton}
+              onClick={() => navigate("/CampSite/application")}
+            >
+              JOIN US!
+            </button>
           </div>
           <img src="camp.svg" alt="" className={styles.introImg} />
         </div>

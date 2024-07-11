@@ -25,13 +25,6 @@ header a:hover {
   font-weight: 500;
   cursor: default;
 }
-.headerButton {
-  transition: background-color 0.3s ease-in-out, scale 0.3s ease-in-out;
-}
-.headerButton:hover {
-  background-color: var(--primary);
-  scale: 1.1;
-}
 
 .burgerBtn {
   display: none;

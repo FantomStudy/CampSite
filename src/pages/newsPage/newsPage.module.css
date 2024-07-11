@@ -1,7 +1,11 @@
-.intro {
+.intro,
+.phoneBlock {
   display: flex;
   align-items: center;
   justify-content: space-between;
+}
+.phoneBlock {
+  padding: 5rem 0;
 }
 .introImg {
   padding: 1.5rem 0;
@@ -21,6 +25,36 @@
   top: -1%;
   z-index: -1;
 }
+.imageContainer {
+  display: flex;
+  grid-gap: 1rem;
+  justify-content: center;
+  margin-top: 1rem;
+}
+.imgSoc {
+  width: 60px;
+  transition: scale 0.3s ease-in-out, filter 0.3s ease-in-out;
+  filter: grayscale(100%);
+}
+.imgSoc:hover {
+  scale: 1.2;
+  filter: grayscale(0%);
+}
+.phoneMask1,
+.phoneMask2 {
+  position: absolute;
+  z-index: -1;
+}
+.phoneMask1 {
+  filter: blur(40px);
+  width: 20%;
+  left: 5%;
+}
+.phoneMask2 {
+  filter: blur(45px);
+  width: 15%;
+  left: 40%;
+}
 @media (max-width: 1440px) {
   .introImg {
     width: 480px;
@@ -33,6 +67,9 @@
   .intro {
     flex-direction: column;
   }
+  .phoneBlock {
+    flex-direction: column-reverse;
+  }
   .textBlock {
     width: 100%;
   }
@@ -43,10 +80,19 @@
     top: 12%;
     width: 75%;
   }
+  .imgSoc {
+    filter: grayscale(0%);
+  }
+  .phoneMask1, .phoneMask2{
+    display: none;
+  }
 }
 @media (max-width: 768px) {
   .introImg {
     width: 380px;
+  }
+  .imgSoc {
+    width: 50px;
   }
 }
 @media (max-width: 425px) {
@@ -57,5 +103,11 @@
 @media (max-width: 375px) {
   .introImg {
     width: 225px;
+  }
+  .imageContainer {
+    grid-gap: 1.5rem;
+  }
+  .imgSoc {
+    width: 45px;
   }
 }

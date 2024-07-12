@@ -22,8 +22,18 @@ export default function ApplicationPage() {
     });
   };
 
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    if (validateForm()) {
+      toast.success("Successfully, сheck your email!");
+      console.log(data);
+    }
+    // console.log(errors);
+  };
+
   const validateForm = () => {
     const newErrors = {};
+
     if (
       !data.firstName.trim() ||
       !data.lastName.trim() ||
@@ -36,18 +46,33 @@ export default function ApplicationPage() {
     } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(data.email)) {
       newErrors.email = "Enter the correct email address";
       toast.error("Enter the correct email address");
+    } else if (!isValidDate(data.dateOfBirth)) {
+      newErrors.dateOfBirth = "Enter a date in dd/mm/yyyy format";
+      toast.error("Enter the past date in dd/mm/yyyy format");
     }
+
     setErrors(newErrors);
     return Object.keys(newErrors).length === 0;
   };
 
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-    if (validateForm()) {
-      toast.success("Successfully, сheck your email!");
-      console.log(data);
-    }
-    // console.log(errors);
+  const isValidDate = (dateString) => {
+    const dateParts = dateString.split("/");
+
+    const day = parseInt(dateParts[0], 10);
+    const month = parseInt(dateParts[1], 10) - 1; // Month is zero-indexed
+    const year = parseInt(dateParts[2], 10);
+
+    return (
+      !isNaN(day) &&
+      !isNaN(month) &&
+      !isNaN(year) &&
+      day > 0 &&
+      day <= 31 &&
+      month >= 0 &&
+      month <= 11 &&
+      year >= 1900 &&
+      new Date(year, month, day) < new Date()
+    );
   };
 
   return (
@@ -72,7 +97,7 @@ export default function ApplicationPage() {
             />
             <InputMask
               mask="99/99/9999"
-              placeholder="dd.mm.yyyy"
+              placeholder="dd/mm/yyyy"
               name="dateOfBirth"
               value={data.dateOfBirth}
               onChange={handleInputChange}

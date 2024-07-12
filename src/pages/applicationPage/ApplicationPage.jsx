@@ -102,7 +102,7 @@ export default function ApplicationPage() {
           <img className={styles.image} src="travel.svg" alt="" />
         </div>
       </section>
-
+      <img src="travelMask.svg" alt="" className={styles.mask} />
       <Footer />
     </>
   );

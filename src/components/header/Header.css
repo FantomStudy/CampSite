@@ -27,7 +27,7 @@ header a:hover {
 }
 
 .burgerBtn {
-  display: block;
+  display: none;
 }
 @media (max-width: 768px) {
   .headerButton {
@@ -53,6 +53,9 @@ header a:hover {
       transition: 0.3s ease-in-out;
       background-color: var(--secondary);
     }
+  }
+  .burgerBtn:hover {
+    background-color: transparent;
   }
   .burgerBtn.active {
     span:nth-child(1) {

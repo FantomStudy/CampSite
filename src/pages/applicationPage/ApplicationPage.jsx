@@ -3,6 +3,7 @@ import { useState } from "react";
 import { InputMask } from "primereact/inputmask";
 import { toast } from "react-toast";
 import Footer from "../../components/footer/Footer";
+import axios from "axios";
 
 export default function ApplicationPage() {
   const [errors, setErrors] = useState({});
@@ -16,17 +17,29 @@ export default function ApplicationPage() {
 
   const handleInputChange = (e) => {
     const { name, value } = e.target;
+
     setData({
       ...data,
-      [name]: value,
+      [name]: value.replace(/^\w/, (match) => match.toUpperCase()), //Первая буква большая всегда
     });
   };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     if (validateForm()) {
-      toast.success("Successfully, сheck your email!");
-      console.log(data);
+      try {
+        const response = await axios.post(
+          "http://localhost:3000/api/register",
+          data
+        );
+        console.log("Success", response.data);
+        toast.success("Successfully, сheck your email!");
+      } catch (error) {
+        if ((error.response.message = { message: "Email already exist" })) {
+          toast.error("This Email already exist!");
+          console.error("Fatal", error);
+        }
+      }
     }
     // console.log(errors);
   };
@@ -86,7 +99,8 @@ export default function ApplicationPage() {
               placeholder="First name"
               name="firstName"
               value={data.firstName}
-              onChange={handleInputChange}
+              onInput={handleInputChange}
+              autoSave="on"
             />
             <input
               type="text"
@@ -94,6 +108,7 @@ export default function ApplicationPage() {
               name="lastName"
               value={data.lastName}
               onChange={handleInputChange}
+              autoSave="on"
             />
             <InputMask
               mask="99/99/9999"
@@ -101,6 +116,8 @@ export default function ApplicationPage() {
               name="dateOfBirth"
               value={data.dateOfBirth}
               onChange={handleInputChange}
+              autoSave="on"
+              autoComplete="off"
             />
             <InputMask
               mask="+7(999)999-9999"
@@ -108,6 +125,7 @@ export default function ApplicationPage() {
               name="phone"
               value={data.phone}
               onChange={handleInputChange}
+              autoSave="on"
             />
             <input
               type="text"
@@ -115,6 +133,7 @@ export default function ApplicationPage() {
               name="email"
               value={data.email}
               onChange={handleInputChange}
+              autoSave="on"
             />
             <button type="submit">Submit</button>
           </form>

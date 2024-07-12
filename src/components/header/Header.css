@@ -27,7 +27,7 @@ header a:hover {
 }
 
 .burgerBtn {
-  display: none;
+  display: block;
 }
 @media (max-width: 768px) {
   .headerButton {

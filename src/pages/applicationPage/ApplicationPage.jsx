@@ -24,20 +24,15 @@ export default function ApplicationPage() {
 
   const validateForm = () => {
     const newErrors = {};
-    if (!data.firstName.trim()) {
-      newErrors.firstName = 'The "First name" field should not be empty';
-    }
-    if (!data.lastName.trim()) {
-      newErrors.lastName = 'The "Last name" field should not be empty';
-    }
-    if (!data.dateOfBirth) {
-      newErrors.dateOfBirth = "Enter your date of birth";
-    }
-    if (!data.phone) {
-      newErrors.phone = "Enter the phone number";
-    }
-    if (!data.email.trim()) {
-      newErrors.email = 'The "Email" field should not be empty';
+    if (
+      !data.firstName.trim() ||
+      !data.lastName.trim() ||
+      !data.dateOfBirth ||
+      !data.phone ||
+      !data.email.trim()
+    ) {
+      newErrors.fields = "All fields should not be empty!";
+      toast.error("All fields should not be empty!");
     } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(data.email)) {
       newErrors.email = "Enter the correct email address";
       toast.error("Enter the correct email address");
@@ -52,7 +47,6 @@ export default function ApplicationPage() {
       toast.success("Successfully, сheck your email!");
       console.log(data);
     }
-    toast.error("All fields should not be empty!");
     // console.log(errors);
   };
 

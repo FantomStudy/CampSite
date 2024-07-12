@@ -1,8 +1,10 @@
 import "./Header.css";
 import { useState } from "react";
 import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 export default function Header() {
+  const navigate = useNavigate();
   const [isOpen, setOpen] = useState(false);
   return (
     <>
@@ -14,17 +16,29 @@ export default function Header() {
           className={`headerNav ${isOpen ? "active" : ""}`}
           onClick={() => setOpen(false)}
         >
-          <li>
-            <Link to="/CampSite/">Hello</Link>
-          </li>
-          <li>
-            <Link to="/CampSite/about">About</Link>
-          </li>
-          <li>
-            <Link to="/CampSite/news">News</Link>
-          </li>
+          <Link to="/CampSite/">
+            <li>Hello</li>
+          </Link>
+
+          <Link to="/CampSite/about">
+            <li>About</li>
+          </Link>
+
+          <Link to="/CampSite/news">
+            <li>News</li>
+          </Link>
+
+          <Link to="/CampSite/application" className="joinBurger">
+            <li>Join us</li>
+          </Link>
         </ul>
-        <button className="headerButton">Sign in</button>
+
+        <button
+          className="headerButton"
+          onClick={() => navigate("/CampSite/application")}
+        >
+          JOIN US
+        </button>
         <button
           className={`burgerBtn ${isOpen ? "active" : ""}`}
           onClick={() => {
